@@ -9,7 +9,7 @@ hasher = PasswordHasher()
 class User:
 
     # Initialization
-    def __init__(self, user_id : int, first_name : str , last_name : str, username : str, email : str, created_at : str, updated_at : str):
+    def __init__(self, user_id : int, first_name : str , last_name : str, username : str, email : str, created_at, updated_at ):
         self.user_id = user_id
         self.first_name = first_name
         self.last_name = last_name

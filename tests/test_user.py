@@ -19,3 +19,35 @@ def test_set_password():
     assert user.password_hash is not None
     assert user.password_hash != password
 
+
+def test_verify_correct_password():
+    user = User(
+        user_id=1,
+        first_name="Test",
+        last_name="User",
+        username="testuser",
+        email="email@gmail.com",
+        created_at="2026-09-01",
+        updated_at="2026-09-01"
+    )
+
+    password = "test200300400"
+    user.set_password(password)
+
+    assert user.verify_password(password) is True
+
+def test_verify_wrong_password():
+    user = User(
+        user_id=1,
+        first_name="Test",
+        last_name="User",
+        username="testuser",
+        email="email@gmail.com",
+        created_at="2026-09-01",
+        updated_at="2026-09-01"
+    )
+
+    password = "test200300400"
+    user.set_password(password)
+
+    assert user.verify_password("wrong password") is False
